@@ -14,7 +14,9 @@
                 <td> <textarea cols=”20″ rows=”5″ wrap=”hard” readonly=”yes”></textarea></td>
                 <td><button name ="come">Bienvenido</button></td>
             </tr>
-            
+            <tr>
+				<td><input type="text" name="txt_a" value="juanxc" /></td>
+			</tr>
         </table>
         </div>
             
