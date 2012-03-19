@@ -6,7 +6,7 @@
 	</head>
 	<body>
             <div align="center">
-            <h1>Video Store chupam la brga</h1>
+            <h1>Video Store Italiano</h1>
 	</body>	
         <a title="Diveo Store"><img src="Imagenes/indeximage.jpg" alt="descripcion" /></a>
         <table>
