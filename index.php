@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Video Store</title>
+		<title>Video Store - lola</title>
                 <script type="text/javascript" src="JQuery 1.7.1.jsp"></script>
 	</head>
 	<body>
