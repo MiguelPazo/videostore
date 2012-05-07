@@ -1,6 +1,6 @@
 <?php
 
-class AboutController extends Zend_Controller_Action
+class RentController extends Zend_Controller_Action
 {
 
     public function init()

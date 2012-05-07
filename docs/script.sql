@@ -2,14 +2,14 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 
-CREATE SCHEMA IF NOT EXISTS `videostore` DEFAULT CHARACTER SET utf8 ;
+CREATE SCHEMA IF NOT EXISTS `videostore` ;
 USE `videostore` ;
 
 -- -----------------------------------------------------
 -- Table `videostore`.`Lugar`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `videostore`.`Lugar` (
-  `idLugar` INT NOT NULL ,
+  `idLugar` INT NOT NULL AUTO_INCREMENT ,
   `nombreLugar` VARCHAR(20) NULL ,
   `tipoLugar` VARCHAR(1) NULL ,
   `Lugar_idLugar` INT NOT NULL ,
@@ -27,7 +27,7 @@ ENGINE = InnoDB;
 -- Table `videostore`.`Tienda`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `videostore`.`Tienda` (
-  `idTienda` INT NOT NULL ,
+  `idTienda` INT NOT NULL AUTO_INCREMENT ,
   `direccion` VARCHAR(100) NULL ,
   `Lugar_idLugar` INT NOT NULL ,
   PRIMARY KEY (`idTienda`) ,
@@ -44,7 +44,7 @@ ENGINE = InnoDB;
 -- Table `videostore`.`Producto`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `videostore`.`Producto` (
-  `idProducto` INT NOT NULL ,
+  `idProducto` INT NOT NULL AUTO_INCREMENT ,
   `titulo` VARCHAR(50) NULL ,
   `codigo` VARCHAR(10) NULL ,
   `categoria` VARCHAR(2) NULL ,
@@ -71,7 +71,7 @@ ENGINE = InnoDB;
 -- Table `videostore`.`Cliente`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `videostore`.`Cliente` (
-  `idCliente` INT NOT NULL ,
+  `idCliente` INT NOT NULL AUTO_INCREMENT ,
   `nombre` VARCHAR(20) NULL ,
   `apellidos` VARCHAR(50) NULL ,
   `codigo` VARCHAR(8) NULL ,
@@ -84,7 +84,7 @@ ENGINE = InnoDB;
 -- Table `videostore`.`Alquiler`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `videostore`.`Alquiler` (
-  `idAlquiler` INT NOT NULL ,
+  `idAlquiler` INT NOT NULL AUTO_INCREMENT ,
   `fecha` DATETIME NULL ,
   `estado` VARCHAR(1) NULL ,
   `Cliente_idCliente` INT NOT NULL ,
@@ -102,7 +102,7 @@ ENGINE = InnoDB;
 -- Table `videostore`.`Producto_Alquiler`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `videostore`.`Producto_Alquiler` (
-  `idProducto_Alquiler` INT NOT NULL ,
+  `idProducto_Alquiler` INT NOT NULL AUTO_INCREMENT ,
   `precio` DOUBLE NULL ,
   `mora` DOUBLE NULL ,
   `diasTarde` INT NULL ,

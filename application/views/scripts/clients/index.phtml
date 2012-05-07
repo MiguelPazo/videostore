@@ -1,0 +1,73 @@
+<div class="line-hor"></div>
+<div class="box">
+    <div class="border-right">
+        <div class="border-left">
+            <div class="inner">
+                <h3>Clients<span> List</span></h3>
+                
+                <table class="tableList" cellspacing="0">
+                    <tr bgcolor="#fff">
+                        <td>
+                            
+                        </td>
+                        <td width="30%">
+                            <b>First Name</b>
+                        </td>
+                        <td width="30%">
+                            <b>Last Name</b>
+                        </td>
+                        <td width="20%">
+                            <b>Code</b>
+                        </td>
+                        <td width="20%">
+                            <b>Effective Date</b>
+                        </td>
+                    </tr>
+                </table>
+                <table class="tableList tableListContent" cellspacing="0">
+                    <?php foreach ($this->allClients as $allClients): ?>
+                    <tr>
+                        <td>
+                            <input name="idCliente" value="<?php echo $allClients['idCliente'] ?>" type="hidden"/>
+                        </td>
+                        <td width="30%">
+                            <?php echo $allClients['nombre'] ?>
+                        </td>
+                        <td width="30%">
+                            <?php echo $allClients['apellidos'] ?>
+                        </td>
+                        <td width="20%">
+                            <?php echo $allClients['codigo'] ?>
+                        </td>
+                        <td width="20%">
+                            <?php echo date('d-m-Y', strtotime($allClients['fechaVigencia'])) ?>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                </table>
+                <br/>
+                <br/>
+                <br/>
+                <div class="wrapper"> 
+                    <a href="/clients/new" class="link2"> 
+                        <span> <span>New</span> </span> 
+                    </a>
+                    <a class="link2" id="buttonEditClient"> 
+                        <span> <span>Edit</span> </span> 
+                    </a>
+                    
+                    <a class="link2" id="buttonDeletetClient"> 
+                        <span> <span>Delete</span> </span> 
+                    </a>
+                </div>
+                <form action="/clients/edit" method="post" name="clientToEdit">
+                    <input type="hidden" value="" name="idClient" id="idClient" />
+                    <input type="hidden" value="edit" name="operation" />
+                </form>
+                <form action="/clients/delete" method="post" name="clientToDelete">
+                    <input type="hidden" value="" name="idClient" id="idClientDelete" />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="line-hor"></div>
+<div class="box">
+    <div class="border-right">
+        <div class="border-left">
+            <div class="inner">
+                <h3>Client<span> Edit</span></h3>
+                <span class="messageRed"><?php echo $this->message ?></span>
+                <form id="contacts-form" action="/clients/edit" method="post">
+                    <input type="hidden" value="save" name="operation" />
+                    <input type="hidden" value="<?php echo $this->dataClient['idCliente'] ?>" name="idClient" />
+                    <fieldset>
+                        <div class="field">
+                            <label>Firts Name:</label>
+                            <input type="text" value="<?php echo $this->dataClient['nombre'] ?>" name="fisrtName" />
+                        </div>
+                        <div class="field">
+                            <label>Last Name:</label>
+                            <input type="text" value="<?php echo $this->dataClient['apellidos'] ?>" name="lastName" />
+                        </div>
+                        <div class="field">
+                            <label>Code:</label>
+                            <input type="text" value="<?php echo $this->dataClient['codigo'] ?>" name="code" readonly="readonly" />
+                        </div>
+                        <div class="field">
+                            <label>Effective Date:</label>
+                            <input type="text" value="<?php echo date('d-m-Y', strtotime($this->dataClient['fechaVigencia'])) ?>" name="effectiveDate" />
+                        </div>
+                    </fieldset>
+                        <div class="wrapper"> 
+                            <a href="/clients/" class="link2"> 
+                                <span> <span>List</span> </span> 
+                            </a>
+                            <button type="submit" class="link2"> 
+                                <span> <span>Send</span> </span>
+                            </button> 
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,86 @@
+<div class="line-hor"></div>
+<div class="box">
+    <div class="border-right">
+        <div class="border-left">
+            <div class="inner">
+                <h3>Movie<span> New</span></h3>
+                <span class="messageRed"><?php echo $this->message ?></span>
+                <form id="contacts-form" action="/clients/new" method="post">
+                    <fieldset>
+                        <div class="field">
+                            <label>Title:</label>
+                            <input type="text" value="" name="title" />
+                        </div>
+                        <div class="field">
+                            <label>Code:</label>
+                            <input type="text" value="<?php echo substr(time(),0,8); ?>" name="code" readonly="readonly" />
+                        </div>
+                        <div class="field">
+                            <label>Category:</label>
+                            <select name="category">
+                                <option value="AC">Accion</option>
+                                <option value="TR">Terror</option>
+                                <option value="CO">Comedio</option>
+                                <option value="SU">Suspenso</option>
+                                <option value="RO">Romance</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label>Type Audience:</label>
+                            <select name="typeAudience">
+                                <option value="B">Apto para todos</option>
+                                <option value="M">Mayores de 14 años</option>
+                                <option value="A">Mayores de 18 años</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label>Type Product:</label>
+                            <select name="typeProduct">
+                                <option value="D">Disco Doble</option>
+                                <option value="S">Disco Simple</option>
+                                <option value="O">Original</option>
+                                <option value="P">Pirata</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label>Rental Days:</label>
+                            <input type="text" value="" name="rentalDays" maxlength="2" />
+                        </div>
+                        <div class="field">
+                            <label>Price:</label>
+                            <input type="text" value="" name="price" />
+                        </div>
+                        <div class="field">
+                            <label>Cost:</label>
+                            <input type="text" value="" name="cost" />
+                        </div>
+                        <div class="field">
+                            <label>Invoice number:</label>
+                            <input type="text" value="" name="invoiceNumber" />
+                        </div>
+                        <div class="field">
+                            <label>Date of purchase:</label>
+                            <input type="text" value="" name="datePurchase" />
+                        </div>
+                        <div class="field">
+                            <label>Status:</label>
+                            <select name="status">
+                                <option value="N">Nuevo</option>
+                                <option value="A">Alquilado</option>
+                                <option value="P">Perdido</option>
+                            </select>
+                        </div>
+                    </fieldset>
+                        <div class="wrapper"> 
+                            <a href="/movies/" class="link2"> 
+                                <span> <span>List</span> </span> 
+                            </a>
+                            <button type="submit" class="link2"> 
+                                <span> <span>Send</span> </span>
+                            </button> 
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
