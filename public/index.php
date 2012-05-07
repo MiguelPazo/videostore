@@ -11,6 +11,7 @@ defined('APPLICATION_ENV')
 // Ensure library/ is on include_path
 set_include_path(implode(PATH_SEPARATOR, array(
     realpath(APPLICATION_PATH . '/../library'),
+    '/kunden/homepages/14/d369206728/htdocs/projects/library/Zf/1.11/library',
     get_include_path(),
 )));
 
