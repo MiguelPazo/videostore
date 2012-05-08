@@ -2,13 +2,13 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 
-CREATE SCHEMA IF NOT EXISTS `videostore` ;
-USE `videostore` ;
+CREATE SCHEMA IF NOT EXISTS `db403261570` DEFAULT CHARACTER SET utf8 ;
+USE `db403261570` ;
 
 -- -----------------------------------------------------
--- Table `videostore`.`Lugar`
+-- Table `db403261570`.`Lugar`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `videostore`.`Lugar` (
+CREATE  TABLE IF NOT EXISTS `db403261570`.`Lugar` (
   `idLugar` INT NOT NULL AUTO_INCREMENT ,
   `nombreLugar` VARCHAR(20) NULL ,
   `tipoLugar` VARCHAR(1) NULL ,
@@ -17,16 +17,16 @@ CREATE  TABLE IF NOT EXISTS `videostore`.`Lugar` (
   INDEX `fk_Lugar_Lugar1` (`Lugar_idLugar` ASC) ,
   CONSTRAINT `fk_Lugar_Lugar1`
     FOREIGN KEY (`Lugar_idLugar` )
-    REFERENCES `videostore`.`Lugar` (`idLugar` )
+    REFERENCES `db403261570`.`Lugar` (`idLugar` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `videostore`.`Tienda`
+-- Table `db403261570`.`Tienda`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `videostore`.`Tienda` (
+CREATE  TABLE IF NOT EXISTS `db403261570`.`Tienda` (
   `idTienda` INT NOT NULL AUTO_INCREMENT ,
   `direccion` VARCHAR(100) NULL ,
   `Lugar_idLugar` INT NOT NULL ,
@@ -34,16 +34,16 @@ CREATE  TABLE IF NOT EXISTS `videostore`.`Tienda` (
   INDEX `fk_Tienda_Lugar` (`Lugar_idLugar` ASC) ,
   CONSTRAINT `fk_Tienda_Lugar`
     FOREIGN KEY (`Lugar_idLugar` )
-    REFERENCES `videostore`.`Lugar` (`idLugar` )
+    REFERENCES `db403261570`.`Lugar` (`idLugar` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `videostore`.`Producto`
+-- Table `db403261570`.`Producto`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `videostore`.`Producto` (
+CREATE  TABLE IF NOT EXISTS `db403261570`.`Producto` (
   `idProducto` INT NOT NULL AUTO_INCREMENT ,
   `titulo` VARCHAR(50) NULL ,
   `codigo` VARCHAR(10) NULL ,
@@ -61,16 +61,16 @@ CREATE  TABLE IF NOT EXISTS `videostore`.`Producto` (
   INDEX `fk_Producto_Tienda1` (`Tienda_idTienda` ASC) ,
   CONSTRAINT `fk_Producto_Tienda1`
     FOREIGN KEY (`Tienda_idTienda` )
-    REFERENCES `videostore`.`Tienda` (`idTienda` )
+    REFERENCES `db403261570`.`Tienda` (`idTienda` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `videostore`.`Cliente`
+-- Table `db403261570`.`Cliente`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `videostore`.`Cliente` (
+CREATE  TABLE IF NOT EXISTS `db403261570`.`Cliente` (
   `idCliente` INT NOT NULL AUTO_INCREMENT ,
   `nombre` VARCHAR(20) NULL ,
   `apellidos` VARCHAR(50) NULL ,
@@ -81,9 +81,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `videostore`.`Alquiler`
+-- Table `db403261570`.`Alquiler`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `videostore`.`Alquiler` (
+CREATE  TABLE IF NOT EXISTS `db403261570`.`Alquiler` (
   `idAlquiler` INT NOT NULL AUTO_INCREMENT ,
   `fecha` DATETIME NULL ,
   `estado` VARCHAR(1) NULL ,
@@ -92,16 +92,16 @@ CREATE  TABLE IF NOT EXISTS `videostore`.`Alquiler` (
   INDEX `fk_Alquiler_Cliente1` (`Cliente_idCliente` ASC) ,
   CONSTRAINT `fk_Alquiler_Cliente1`
     FOREIGN KEY (`Cliente_idCliente` )
-    REFERENCES `videostore`.`Cliente` (`idCliente` )
+    REFERENCES `db403261570`.`Cliente` (`idCliente` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `videostore`.`Producto_Alquiler`
+-- Table `db403261570`.`Producto_Alquiler`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `videostore`.`Producto_Alquiler` (
+CREATE  TABLE IF NOT EXISTS `db403261570`.`Producto_Alquiler` (
   `idProducto_Alquiler` INT NOT NULL AUTO_INCREMENT ,
   `precio` DOUBLE NULL ,
   `mora` DOUBLE NULL ,
@@ -116,12 +116,12 @@ CREATE  TABLE IF NOT EXISTS `videostore`.`Producto_Alquiler` (
   INDEX `fk_Producto_Alquiler_Alquiler1` (`Alquiler_idAlquiler` ASC) ,
   CONSTRAINT `fk_Producto_Alquiler_Producto1`
     FOREIGN KEY (`Producto_idProducto` )
-    REFERENCES `videostore`.`Producto` (`idProducto` )
+    REFERENCES `db403261570`.`Producto` (`idProducto` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Producto_Alquiler_Alquiler1`
     FOREIGN KEY (`Alquiler_idAlquiler` )
-    REFERENCES `videostore`.`Alquiler` (`idAlquiler` )
+    REFERENCES `db403261570`.`Alquiler` (`idAlquiler` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
